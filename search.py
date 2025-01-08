@@ -4,13 +4,13 @@ import os
 
 
 # Configuração do email (obrigatório para usar o Entrez)
-Entrez.email = "lucasdias26@hotmail.com.br"  # Substitua pelo seu email
+Entrez.email =  "lucasdias26@hotmail.com.br"
 
 # String de busca
-query = '"Severe acute respiratory syndrome coronavirus 2"[Organism] AND "complete genome"[All Fields] AND "human"[Host]'
+query = '"Severe acute respiratory syndrome coronavirus 2"[Organism] OR sars-cov-2[All Fields]) AND complete[All Fields] AND genome[All Fields] NOT mRNA[All Fields] NOT RNA[All Fields'
 
 # 1. Realiza a busca no banco de dados "nucleotide"
-handle = Entrez.esearch(db="nucleotide", term=query, retmax=10)  # retmax define o número máximo de resultados
+handle = Entrez.esearch(db="nucleotide", term=query, retmax=20)  # retmax define o número máximo de resultados, o padão é 20
 search_results = Entrez.read(handle)
 handle.close()
 
